@@ -39,3 +39,12 @@ LeetBuddy allows you to save notes and annotations on LeetCode questions. You ca
 - **Organized Notes**: Save valuable insights and notes on LeetCode questions directly within the extension, creating a personalized knowledge repository.
 
 LeetBuddy is your dedicated LeetCode companion, helping you stay motivated, organized, and informed as you tackle coding challenges and enhance your programming skills.
+
+# Things left
+
+[] - multi user support
+[] - database support
+[] - mail daily question
+[] - file is created but not pushed
+
+[] - give a good UI
