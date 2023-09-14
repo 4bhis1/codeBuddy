@@ -42,9 +42,9 @@ LeetBuddy is your dedicated LeetCode companion, helping you stay motivated, orga
 
 # Things left
 
-[] - multi user support
-[] - database support
-[] - mail daily question
-[] - file is created but not pushed
+[] multi user support
+[] database support
+[] mail daily question
+[] file is created but not pushed
 
-[] - give a good UI
+[] give a good UI

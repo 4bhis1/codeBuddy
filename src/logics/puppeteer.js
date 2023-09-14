@@ -1,5 +1,10 @@
 const puppeteer = require("puppeteer");
 
+const parseCode = (code) => {
+  code = code.replace(/&gt;/g, ">").replace(/&lt;/g, "<");
+  return code;
+};
+
 const getCode = async (id) => {
   const browser = await puppeteer.launch({
     headless: "new",
@@ -31,6 +36,8 @@ const getCode = async (id) => {
     let code = divContents
       .map((doc) => doc.replace(/<\/?[^>]+(>|$)/g, ""))
       .join("\n");
+
+    code = parseCode(code);
 
     return code;
   } catch (error) {

@@ -14,6 +14,10 @@ const timeUnits = {
 };
 
 const getTodayDate = (durationString) => {
+  if (!durationString) {
+    throw new Error("Duration is must.");
+  }
+
   try {
     const parts = durationString.match(
       /(\d+)\s*(year|month|week|day|hour|minute|second)s?/g

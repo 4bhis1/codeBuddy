@@ -11,6 +11,7 @@ const {
   daily,
 } = require("./queries");
 
+// main function
 const recentSubmissionsApi = async (req, res) => {
   try {
     let username = process.env.LEETCODE_USERNAME;
@@ -23,8 +24,7 @@ const recentSubmissionsApi = async (req, res) => {
     });
 
     for (let i of data["recentSubmissionList"]) {
-      if (getTodayDate(i.time)) {
-        console.log(">> i", i);
+      if (i?.statusDisplay === "Accepted" && getTodayDate(i.time)) {
         const code = await getCode(i.id);
         await commitGithubCode(code, i.titleSlug, i.lang);
       } else {

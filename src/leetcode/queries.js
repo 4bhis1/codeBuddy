@@ -168,4 +168,10 @@ query {
 }
 `;
 
-module.exports = { profile, recentSubmissions, submissions, problems, daily };
+module.exports = {
+  profile,
+  recentSubmissions,
+  /* submissions, */
+  problems,
+  daily,
+};

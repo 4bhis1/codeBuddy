@@ -2,7 +2,7 @@ require("dotenv").config();
 const fs = require("fs");
 const scriptReader = require("../logics/scripter");
 
-const primerSetup = (accessToken, branch, userName, repoName) => `
+const primerSetup = ({ accessToken, branch, userName, repoName }) => `
 mkdir -p repositories
 cd repositories
 git clone https://${accessToken}@github.com/${userName}/${repoName}.git
@@ -16,15 +16,13 @@ const setupRepo = async () => {
     return;
   }
   await scriptReader({
-    script: primerSetup(
-      process.env.GITHUB_ACCESS_TOKEN,
-      "code-extension",
-      process.env.GITHUB_USERNAME,
-      "DSA"
-    ),
+    script: primerSetup({
+      accessToken: process.env.GITHUB_ACCESS_TOKEN,
+      branch: "dev-v1",
+      userName: process.env.GITHUB_USERNAME,
+      repoName: "DSA",
+    }),
   });
 };
-
-setupRepo();
 
 module.exports = setupRepo;
