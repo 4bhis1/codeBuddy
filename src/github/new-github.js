@@ -13,6 +13,7 @@ const languageExtension = {
 
 const commitCodeScript = ({ branch, message, repoName }) => `
 cd /repositories/${repoName}
+ls
 git add .
 git commit -m '${message}'
 git push origin ${branch}
