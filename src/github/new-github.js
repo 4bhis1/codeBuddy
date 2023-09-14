@@ -11,38 +11,43 @@ const languageExtension = {
   cpp: ".cpp",
 };
 
-const commitCodeScript = ({ branch, message }) => `
+const commitCodeScript = ({ branch, message, repoName }) => `
+cd /repositories/${repoName}
 git add .
 git commit -m '${message}'
 git push origin ${branch}
 `;
 
 const commitGithubCode = async (code, question_name, language) => {
-  const folderPath = `./repositories/DSA/${question_name}`;
-  const fileName = `${moment().format("YY-DD-MM")}${
-    languageExtension[language] || ".txt"
-  }`;
+  // const folderPath = `./repositories/DSA/${question_name}`;
+  // const fileName = `${moment().format("YY-DD-MM")}${
+  //   languageExtension[language] || ".txt"
+  // }`;
 
-  const filePath = path.join(folderPath, fileName);
-  try {
-    if (!fs.existsSync(folderPath)) {
-      fs.mkdirSync(folderPath, { recursive: true });
-    }
-    fs.writeFileSync(filePath, code);
-  } catch (err) {
-    console.error(`Error writing file: ${err}`);
-  }
+  // const filePath = path.join(folderPath, fileName);
+  // try {
+  //   if (!fs.existsSync(folderPath)) {
+  //     fs.mkdirSync(folderPath, { recursive: true });
+  //   }
+  //   fs.writeFileSync(filePath, code);
+  // } catch (err) {
+  //   console.error(`Error writing file: ${err}`);
+  // }
 
   try {
-    await scriptReader({
+    const scriptOtpt = await scriptReader({
       script: commitCodeScript({
         branch: "dev-v1",
         message: "commit from leetBuddy",
+        repoName: "DSA",
       }),
     });
+    console.log("\n@@@  file: new-github.js:45  scriptOtpt:", scriptOtpt);
   } catch (err) {
     console.log(`Error while committing file: ${err}`);
   }
 };
 
-module.exports = commitGithubCode;
+commitGithubCode();
+
+// module.exports = commitGithubCode;
