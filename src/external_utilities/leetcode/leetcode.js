@@ -1,9 +1,9 @@
 require("dotenv").config();
-const getCode = require("../logics/puppeteer");
-const getTodayDate = require("../logics/getTodaysDate");
+const getCode = require("../../logics/puppeteer");
+const getTodayDate = require("../../logics/getTodaysDate");
 const leetcodeApi = require("./leetcodeAPi");
-const setupRepo = require("../github/setup-method");
-const commitGithubCode = require("../github/new-github");
+const setupRepo = require("../../github/setup-method");
+const commitGithubCode = require("../../github/new-github");
 const {
   profile: profileQuery,
   recentSubmissions,

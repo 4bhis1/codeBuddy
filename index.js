@@ -8,7 +8,7 @@ let {
   recentSubmissionsApi,
   problemsApi,
   dailyApi,
-} = require("./src/leetcode");
+} = require("./src/external_utilities/leetcode");
 
 app.use(bodyParser.json());
 

@@ -48,3 +48,4 @@ const getCode = async (id) => {
 };
 
 module.exports = getCode;
+getCode()
